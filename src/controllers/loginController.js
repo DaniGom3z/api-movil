@@ -39,8 +39,13 @@ const login = async (req, res) => {
 
         return res.status(200).json({
             message: "Acceso correcto",
-            token
+            token,
+            user: {
+                id: usuarioEncontrado.id,
+                email: usuarioEncontrado.email
+            }
         });
+        
     } catch (error) {
         return res.status(500).json({
             message: "Ocurrió un error al validar credenciales.",
